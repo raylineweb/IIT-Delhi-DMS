@@ -1,0 +1,35 @@
+{
+  "overview": {
+    "totalParticipants": 688,
+    "totalSHGs": 224,
+    "totalDistricts": 10,
+    "totalStates": 5,
+    "totalFGDs": 15
+  },
+  "states": [
+    { "name": "Delhi", "districts": ["South Delhi", "North Delhi"], "lat": 28.6139, "lng": 77.2090, "participants": 121 },
+    { "name": "Haryana", "districts": ["Palwal", "Nuh"], "lat": 29.0588, "lng": 76.0856, "participants": 97 },
+    { "name": "Himachal Pradesh", "districts": ["Shimla", "Hamirpur"], "lat": 31.1048, "lng": 77.1734, "participants": 166 },
+    { "name": "Uttar Pradesh", "districts": ["Lucknow", "Prayagraj"], "lat": 26.8467, "lng": 80.9462, "participants": 228 },
+    { "name": "Uttarakhand", "districts": ["Haridwar", "Dehradun"], "lat": 30.0668, "lng": 79.0193, "participants": 106 }
+  ],
+  "overallImpact": [
+    { "metric": "E-Commerce Awareness", "baseline": 25.09, "endline": 93.92 },
+    { "metric": "E-Commerce Adoption", "baseline": 13.51, "endline": 90.20 },
+    { "metric": "Digital Payments Awareness", "baseline": 47.87, "endline": 90.90 },
+    { "metric": "Digital Payments Adoption", "baseline": 35.89, "endline": 89.07 },
+    { "metric": "Bookkeeping & Financial Literacy", "baseline": 33.21, "endline": 93.20 },
+    { "metric": "Entrepreneurial Confidence", "baseline": 48.76, "endline": 96.67 },
+    { "metric": "Social Media for Business", "baseline": 19.29, "endline": 88.55 }
+  ],
+  "testimonials": [
+    { "name": "Manju Devi", "shg": "Sai SHG", "location": "Hamirpur, HP", "quote": "After the training, we realized the importance of packaging and improved our product presentation. Our group also started an Integrated Farmer Center (IFC) to strengthen our work." },
+    { "name": "Rajni", "shg": "Bhole Baba SHG", "location": "Palwal, Haryana", "quote": "The training helped me learn online transactions & how to sell products digitally. Now, I sell school and travel bags to local shops, and even taught another SHG member to use UPI." },
+    { "name": "Beena Devi", "shg": "Lakshmi SHG", "location": "Shimla, HP", "quote": "The training was very informative. I have registered for a GST number and am preparing to start my own business. After the sessions, I began using UPI and maintain my records on Cashbook." },
+    { "name": "Sonam", "shg": "SHG Member", "location": "Dehradun, Uttarakhand", "quote": "I feel empowered after learning UPI, online selling, and basic digital skills that make my business smoother to run." },
+    { "name": "Savita Vishvakarma", "shg": "SHG Member", "location": "Prayagraj, UP", "quote": "Through the sessions on business management, cashbook, and bookkeeping, I now understand how to plan and track my business activities properly." },
+    { "name": "Sangeeta Devi", "shg": "SHG Member", "location": "Prayagraj, UP", "quote": "Learning UPI and digital banking has made me fully confident in handling all my transactions without depending on my husband." },
+    { "name": "Sunita", "shg": "SHG Member", "location": "South Delhi", "quote": "I gained both confidence and new knowledge, especially about handling digital transactions; it was a sense of fear earlier." },
+    { "name": "Reena", "shg": "SHG Member", "location": "Palwal, Haryana", "quote": "After the training, I now feel confident handling all my banking tasks on my own without any hesitation. I will also teach my samuh members." }
+  ]
+}
