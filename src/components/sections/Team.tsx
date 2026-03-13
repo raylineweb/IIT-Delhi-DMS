@@ -18,6 +18,51 @@ export default function Team() {
     }
   ];
 
+  const researchTeam = [
+    {
+      id: "3",
+      name: "Purari",
+      role: "Doctoral Scholar",
+      image: "/IIT-Delhi-DMS/images/team/purari.jpg",
+      social: {}
+    },
+    {
+      id: "4",
+      name: "Vinay",
+      role: "Senior Project Researcher",
+      image: "",
+      social: {}
+    },
+    {
+      id: "5",
+      name: "Harshi",
+      role: "Project Researcher",
+      image: "/IIT-Delhi-DMS/images/team/harshi.jpg",
+      social: {}
+    },
+    {
+      id: "6",
+      name: "Hritika",
+      role: "Project Researcher",
+      image: "/IIT-Delhi-DMS/images/team/hritika.jpg",
+      social: {}
+    },
+    {
+      id: "7",
+      name: "Pranjali",
+      role: "Project Researcher",
+      image: "/IIT-Delhi-DMS/images/team/pranjali.jpg",
+      social: {}
+    },
+    {
+      id: "8",
+      name: "Shalini",
+      role: "Senior Project Assistant",
+      image: "/IIT-Delhi-DMS/images/team/shalini.jpg",
+      social: {}
+    }
+  ];
+
   return (
     <section className="w-full bg-brand-ivory py-16 md:py-24 border-t border-gray-100">
       <div className="container mx-auto px-4 md:px-6">
@@ -31,6 +76,14 @@ export default function Team() {
         </div>
         
         <TeamShowcase members={members} />
+
+        <div className="mt-16 mb-10 text-center">
+          <h3 className="inline-block text-2xl font-semibold text-brand-navy border-b-[3px] border-brand-saffron pb-1">
+            Project Research Team
+          </h3>
+        </div>
+
+        <TeamShowcase members={researchTeam} />
       </div>
     </section>
   );

@@ -161,14 +161,22 @@ function PhotoCard({
       onMouseEnter={() => onHover(member.id)}
       onMouseLeave={() => onHover(null)}
     >
-      <img
-        src={member.image}
-        alt={member.name}
-        className="w-full h-full object-cover transition-[filter] duration-500"
-        style={{
-          filter: isActive ? 'grayscale(0) brightness(1)' : 'grayscale(1) brightness(0.77)',
-        }}
-      />
+      {member.image ? (
+        <img
+          src={member.image}
+          alt={member.name}
+          className="w-full h-full object-cover transition-[filter] duration-500"
+          style={{
+            filter: isActive ? 'grayscale(0) brightness(1)' : 'grayscale(1) brightness(0.77)',
+          }}
+        />
+      ) : (
+        <div className="w-full h-full flex items-center justify-center bg-gray-200 rounded-xl">
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a00-7-7z" />
+          </svg>
+        </div>
+      )}
     </div>
   );
 }
