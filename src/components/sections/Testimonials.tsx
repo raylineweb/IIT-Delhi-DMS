@@ -58,10 +58,12 @@ export default function Testimonials() {
           </p>
         </div>
 
-        <div className="flex justify-center gap-6 mt-10 [mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)] max-h-[640px] overflow-hidden">
-          <TestimonialsColumn testimonials={firstColumn} duration={15} />
-          <TestimonialsColumn testimonials={secondColumn} className="hidden md:block" duration={19} />
-          <TestimonialsColumn testimonials={thirdColumn} className="hidden lg:block" duration={17} />
+        <div className="overflow-hidden">
+          <div className="flex justify-center gap-6 mt-10 [mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)] max-h-[640px] overflow-hidden">
+            <TestimonialsColumn testimonials={firstColumn} duration={15} />
+            <TestimonialsColumn testimonials={secondColumn} className="hidden md:block" duration={19} />
+            <TestimonialsColumn testimonials={thirdColumn} className="hidden lg:block" duration={17} />
+          </div>
         </div>
       </div>
     </section>

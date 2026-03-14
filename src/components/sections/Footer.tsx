@@ -62,7 +62,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-white/40">
-          <span>© 2024 IIT Delhi — Department of Management Studies. All rights reserved.</span>
+          <span>© 2025 IIT Delhi — Department of Management Studies. All rights reserved.</span>
           <span>In partnership with EXL & State Rural Livelihoods Missions</span>
         </div>
       </div>

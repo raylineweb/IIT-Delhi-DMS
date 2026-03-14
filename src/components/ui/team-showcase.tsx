@@ -165,9 +165,9 @@ function PhotoCard({
         <img
           src={member.image}
           alt={member.name}
-          className="w-full h-full object-cover transition-[filter] duration-500"
+          className="w-full h-full object-cover transition-all duration-500"
           style={{
-            filter: isActive ? 'grayscale(0) brightness(1)' : 'grayscale(1) brightness(0.77)',
+            filter: isActive ? 'brightness(1.05)' : 'brightness(0.95)',
           }}
         />
       ) : (

@@ -15,10 +15,10 @@ export default function Project() {
       description: "UPI & Digital Banking · WhatsApp Business · E-Commerce (ONDC, Amazon, Flipkart, Meesho) · Bookkeeping & Balance Sheet · Cost & Pricing Strategy · Credit Score & Financial Management",
       href: "#impact",
       cta: "View Curriculum",
-      className: "lg:col-start-1 lg:col-end-3 lg:row-start-1 lg:row-end-2",
+      className: "col-span-1 lg:col-start-1 lg:col-end-3 lg:row-start-1 lg:row-end-2 bg-white/95",
       background: (
         <img 
-          className="absolute inset-0 h-full w-full object-cover opacity-10" 
+          className="absolute inset-0 h-full w-full object-cover opacity-[0.07]" 
           src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&auto=format&fit=crop"
           alt="Women training session India"
         />
@@ -30,10 +30,10 @@ export default function Project() {
       description: "688 SHG women entrepreneurs across 224 Self-Help Groups in 10 districts across Delhi, Haryana, UP, Uttarakhand & Himachal Pradesh.",
       href: "#impact",
       cta: "See Reach",
-      className: "lg:col-start-3 lg:col-end-3 lg:row-start-1 lg:row-end-2",
+      className: "col-span-1 lg:col-start-3 lg:col-end-3 lg:row-start-1 lg:row-end-2 bg-white/95",
       background: (
         <img 
-          className="absolute inset-0 h-full w-full object-cover opacity-10" 
+          className="absolute inset-0 h-full w-full object-cover opacity-[0.07]" 
           src="https://images.unsplash.com/photo-1617450365226-9bf28c04e130?w=800&auto=format&fit=crop"
           alt="Indian women group SHG"
         />
@@ -45,10 +45,10 @@ export default function Project() {
       description: "3-day structured training · 15 Focus Group Discussions · Baseline & Endline surveys · Training of Trainers (ToT) sessions · Self-learning handbook developed",
       href: "#about",
       cta: "Learn More",
-      className: "lg:col-start-1 lg:col-end-2 lg:row-start-2 lg:row-end-3",
+      className: "col-span-1 lg:col-start-1 lg:col-end-2 lg:row-start-2 lg:row-end-3 bg-white/95",
       background: (
         <img 
-          className="absolute inset-0 h-full w-full object-cover opacity-10" 
+          className="absolute inset-0 h-full w-full object-cover opacity-[0.07]" 
           src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&auto=format&fit=crop"
           alt="Research and fieldwork"
         />
@@ -60,10 +60,10 @@ export default function Project() {
       description: "SDG 5: Gender Equality · SDG 8: Decent Work & Economic Growth · SDG 9: Industry, Innovation & Infrastructure",
       href: "#partners",
       cta: "About EXL Partnership",
-      className: "lg:col-start-2 lg:col-end-3 lg:row-start-2 lg:row-end-3",
+      className: "col-span-1 lg:col-start-2 lg:col-end-3 lg:row-start-2 lg:row-end-3 bg-white/95",
       background: (
         <img 
-          className="absolute inset-0 h-full w-full object-cover opacity-10" 
+          className="absolute inset-0 h-full w-full object-cover opacity-[0.07]" 
           src="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?w=800&auto=format&fit=crop"
           alt="SDG sustainability"
         />
@@ -75,10 +75,10 @@ export default function Project() {
       description: "E-Commerce awareness rose from 25% to 94%. Entrepreneurial confidence went from 49% to 97% across all districts.",
       href: "#impact",
       cta: "View Full Data",
-      className: "lg:col-start-3 lg:col-end-3 lg:row-start-2 lg:row-end-3",
+      className: "col-span-1 lg:col-start-3 lg:col-end-3 lg:row-start-2 lg:row-end-3 bg-white/95",
       background: (
         <img 
-          className="absolute inset-0 h-full w-full object-cover opacity-10" 
+          className="absolute inset-0 h-full w-full object-cover opacity-[0.07]" 
           src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=800&auto=format&fit=crop"
           alt="Impact data charts"
         />
