@@ -15,10 +15,10 @@ export default function Project() {
       description: "UPI & Digital Banking · WhatsApp Business · E-Commerce (ONDC, Amazon, Flipkart, Meesho) · Bookkeeping & Balance Sheet · Cost & Pricing Strategy · Credit Score & Financial Management",
       href: "#impact",
       cta: "View Curriculum",
-      className: "col-span-1 lg:col-start-1 lg:col-end-3 lg:row-start-1 lg:row-end-2 bg-white/95",
+      className: "col-span-1 md:col-span-2 lg:col-start-1 lg:col-end-3 lg:row-start-1 lg:row-end-2 bg-white/95",
       background: (
-        <img 
-          className="absolute inset-0 h-full w-full object-cover opacity-[0.07]" 
+        <img
+          className="absolute inset-0 h-full w-full object-cover opacity-[0.07]"
           src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&auto=format&fit=crop"
           alt="Women training session India"
         />
@@ -28,12 +28,12 @@ export default function Project() {
       Icon: UsersIcon,
       name: "Who We Trained",
       description: "688 SHG women entrepreneurs across 224 Self-Help Groups in 10 districts across Delhi, Haryana, UP, Uttarakhand & Himachal Pradesh.",
-      href: "#impact",
+      href: "#map",
       cta: "See Reach",
-      className: "col-span-1 lg:col-start-3 lg:col-end-3 lg:row-start-1 lg:row-end-2 bg-white/95",
+      className: "col-span-1 lg:col-start-3 lg:col-end-4 lg:row-start-1 lg:row-end-2 bg-white/95",
       background: (
-        <img 
-          className="absolute inset-0 h-full w-full object-cover opacity-[0.07]" 
+        <img
+          className="absolute inset-0 h-full w-full object-cover opacity-[0.07]"
           src="https://images.unsplash.com/photo-1617450365226-9bf28c04e130?w=800&auto=format&fit=crop"
           alt="Indian women group SHG"
         />
@@ -47,8 +47,8 @@ export default function Project() {
       cta: "Learn More",
       className: "col-span-1 lg:col-start-1 lg:col-end-2 lg:row-start-2 lg:row-end-3 bg-white/95",
       background: (
-        <img 
-          className="absolute inset-0 h-full w-full object-cover opacity-[0.07]" 
+        <img
+          className="absolute inset-0 h-full w-full object-cover opacity-[0.07]"
           src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&auto=format&fit=crop"
           alt="Research and fieldwork"
         />
@@ -58,14 +58,14 @@ export default function Project() {
       Icon: GlobeIcon,
       name: "SDG Alignment",
       description: "SDG 5: Gender Equality · SDG 8: Decent Work & Economic Growth · SDG 9: Industry, Innovation & Infrastructure",
-      href: "#partners",
-      cta: "About EXL Partnership",
+      href: "#about",
+      cta: "Our Impact",
       className: "col-span-1 lg:col-start-2 lg:col-end-3 lg:row-start-2 lg:row-end-3 bg-white/95",
       background: (
-        <img 
-          className="absolute inset-0 h-full w-full object-cover opacity-[0.07]" 
-          src="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?w=800&auto=format&fit=crop"
-          alt="SDG sustainability"
+        <img
+          className="absolute inset-0 h-full w-full object-cover opacity-[0.07]"
+          src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=800&auto=format&fit=crop"
+          alt="Global sustainable development"
         />
       ),
     },
@@ -74,31 +74,28 @@ export default function Project() {
       name: "Measured Impact",
       description: "E-Commerce awareness rose from 25% to 94%. Entrepreneurial confidence went from 49% to 97% across all districts.",
       href: "#impact",
-      cta: "View Full Data",
-      className: "col-span-1 lg:col-start-3 lg:col-end-3 lg:row-start-2 lg:row-end-3 bg-white/95",
+      cta: "View Data",
+      className: "col-span-1 md:col-span-2 lg:col-start-3 lg:col-end-4 lg:row-start-2 lg:row-end-3 bg-white/95",
       background: (
-        <img 
-          className="absolute inset-0 h-full w-full object-cover opacity-[0.07]" 
-          src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=800&auto=format&fit=crop"
-          alt="Impact data charts"
+        <img
+          className="absolute inset-0 h-full w-full object-cover opacity-[0.07]"
+          src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop"
+          alt="Data analytics and growth"
         />
       ),
     },
   ];
 
   return (
-    <section id="project" className="w-full bg-white py-16 md:py-24">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="text-center mb-16 space-y-4">
-          <h2 className="text-3xl md:text-5xl font-bold text-brand-navy tracking-tight">
-            The Project
+    <section id="project" className="py-20 bg-brand-ivory">
+      <div className="max-w-6xl mx-auto px-4 md:px-6">
+        <div className="text-center mb-12">
+          <span className="text-xs font-bold uppercase tracking-widest text-[#E8821A]">The Project</span>
+          <h2 className="text-4xl font-bold text-[#003580] mt-2">
+            What We Did & How
           </h2>
-          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto font-medium">
-            Empowering Micro-Level Women Entrepreneurs through Financial and Digital Literacy
-          </p>
         </div>
-
-        <BentoGrid className="lg:grid-rows-2">
+        <BentoGrid className="grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-auto lg:auto-rows-[200px]">
           {features.map((feature) => (
             <BentoCard key={feature.name} {...feature} />
           ))}
