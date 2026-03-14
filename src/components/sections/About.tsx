@@ -1,22 +1,32 @@
+"use client";
 export default function About() {
   return (
     <section id="about" className="w-full bg-white py-16 md:py-24">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          {/* Left: Image / Logo Placeholder */}
-          <div className="relative aspect-[4/3] w-full bg-gray-100 rounded-2xl flex items-center justify-center p-8 overflow-hidden">
-            {/* If there was a real image, it would go here. For now, a styled placeholder */}
-            <div className="text-center">
-              <div className="mx-auto w-32 h-32 md:w-48 md:h-48 border-[6px] border-brand-navy rounded-full flex items-center justify-center bg-white shadow-xl">
-                <span className="text-brand-navy font-bold text-2xl md:text-3xl text-center leading-tight">
-                  IIT<br />Delhi
-                </span>
+          {/* Left: Image / Logo Card */}
+          <div className="flex flex-col items-center justify-center gap-6 p-10 bg-[#FAF9F6] rounded-2xl border border-gray-100 shadow-sm relative overflow-hidden">
+            <img 
+              src="/IIT-Delhi-DMS/images/iitd-logo.png"
+              alt="IIT Delhi Logo"
+              className="h-32 w-auto object-contain relative z-10"
+              onError={(e: any) => { e.target.style.display='none' }}
+            />
+            <div className="text-center relative z-10">
+              <p className="text-2xl font-bold text-[#003580]">IIT Delhi</p>
+              <p className="text-sm text-gray-500 mt-1">
+                Established 1961 · NIRF Rank #2
+              </p>
+              <div className="flex gap-3 mt-4 justify-center flex-wrap">
+                <span className="px-3 py-1 bg-[#003580]/10 text-[#003580] rounded-full text-xs font-medium">Premier Research Institution</span>
+                <span className="px-3 py-1 bg-[#E8821A]/10 text-[#E8821A] rounded-full text-xs font-medium">Action Research</span>
+                <span className="px-3 py-1 bg-[#003580]/10 text-[#003580] rounded-full text-xs font-medium">Social Impact</span>
               </div>
             </div>
             
             {/* Decorative elements */}
-            <div className="absolute top-0 right-0 w-32 h-32 bg-brand-saffron/10 rounded-bl-full"></div>
-            <div className="absolute bottom-0 left-0 w-24 h-24 bg-brand-navy/5 rounded-tr-full"></div>
+            <div className="absolute top-0 right-0 w-32 h-32 bg-brand-saffron/10 rounded-bl-full z-0"></div>
+            <div className="absolute bottom-0 left-0 w-24 h-24 bg-brand-navy/5 rounded-tr-full z-0"></div>
           </div>
 
           {/* Right: Text */}

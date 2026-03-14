@@ -38,7 +38,7 @@ export default function Hero() {
             <img
               alt="Group training session"
               className="h-full w-full overflow-hidden object-cover object-center"
-              src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200"
+              src="https://images.unsplash.com/photo-1607748862156-7c548e7e98f4?w=1200&auto=format&fit=crop"
             />
           </div>
 

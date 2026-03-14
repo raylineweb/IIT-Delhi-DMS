@@ -5,15 +5,12 @@ import StatsBar from "@/components/sections/StatsBar";
 import About from "@/components/sections/About";
 import Project from "@/components/sections/Project";
 import Partners from "@/components/sections/Partners";
-import Footer from "@/components/sections/Footer";
-
+import { Footer } from "@/components/ui/flickering-footer";
 import Team from "@/components/sections/Team";
+import Testimonials from "@/components/sections/Testimonials";
 
-export const metadata = {
-  title: "IIT Delhi DMS | Digital Market Shiksha — Social Impact Report",
-  description:
-    "IIT Delhi Department of Management Studies trained 688 SHG women across 10 districts in Northern India in financial and digital literacy, in partnership with EXL.",
-};
+import ReachMap from "@/components/sections/ReachMap";
+import ImpactCharts from "@/components/sections/ImpactCharts";
 
 export default function Home() {
   return (
@@ -27,6 +24,9 @@ export default function Home() {
       </section>
       <Project />
       <Partners />
+      <ReachMap />
+      <ImpactCharts />
+      <Testimonials />
       <Footer />
     </main>
   );
