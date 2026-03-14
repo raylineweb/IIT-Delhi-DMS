@@ -1,93 +1,72 @@
 "use client";
+import { useEffect, useRef, useState } from "react";
 
-import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+function useInView(threshold = 0.3) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [inView, setInView] = useState(false);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setInView(true); observer.disconnect(); } },
+      { threshold }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, [threshold]);
+  return { ref, inView };
+}
 
-const Counter = ({ from, to, duration = 2, suffix = "" }: { from: number; to: number; duration?: number; suffix?: string }) => {
-  const [count, setCount] = useState(from);
+function Counter({ to, duration = 1.8, suffix = "", prefix = "" }: { to: number; duration?: number; suffix?: string; prefix?: string }) {
+  const [count, setCount] = useState(0);
+  const { ref, inView } = useInView();
+  const started = useRef(false);
 
   useEffect(() => {
-    let startTimestamp: number | null = null;
-    const step = (timestamp: number) => {
-      if (!startTimestamp) startTimestamp = timestamp;
-      const progress = Math.min((timestamp - startTimestamp) / (duration * 1000), 1);
-      setCount(Math.floor(progress * (to - from) + from));
-      if (progress < 1) {
-        window.requestAnimationFrame(step);
-      }
+    if (!inView || started.current) return;
+    started.current = true;
+    let startTs: number | null = null;
+    const step = (ts: number) => {
+      if (!startTs) startTs = ts;
+      const progress = Math.min((ts - startTs) / (duration * 1000), 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setCount(Math.floor(eased * to));
+      if (progress < 1) requestAnimationFrame(step);
+      else setCount(to);
     };
-    window.requestAnimationFrame(step);
-  }, [from, to, duration]);
+    requestAnimationFrame(step);
+  }, [inView, to, duration]);
 
-  return <span>{count}{suffix}</span>;
-};
+  return <span ref={ref}>{prefix}{count}{suffix}</span>;
+}
 
 export default function StatsBar() {
   return (
     <section className="w-full bg-brand-navy py-12">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 text-center">
-          
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="flex flex-col items-center justify-center space-y-2"
-          >
-            <h3 className="text-5xl md:text-6xl font-bold text-brand-saffron">
-              <Counter from={0} to={688} suffix="+" />
-            </h3>
-            <p className="text-sm md:text-base uppercase tracking-widest text-white/80 font-medium">
-              Women Trained
+          <div className="flex flex-col items-center gap-1">
+            <p className="text-4xl md:text-5xl font-bold text-brand-saffron tabular-nums">
+              <Counter to={688} suffix="+" />
             </p>
-          </motion.div>
-
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="flex flex-col items-center justify-center space-y-2"
-          >
-            <h3 className="text-5xl md:text-6xl font-bold text-brand-saffron">
-              <Counter from={0} to={224} />
-            </h3>
-            <p className="text-sm md:text-base uppercase tracking-widest text-white/80 font-medium">
-              SHGs Engaged
+            <p className="text-sm md:text-base font-medium text-white/80">Women Trained</p>
+          </div>
+          <div className="flex flex-col items-center gap-1">
+            <p className="text-4xl md:text-5xl font-bold text-brand-saffron tabular-nums">
+              <Counter to={224} />
             </p>
-          </motion.div>
-
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="flex flex-col items-center justify-center space-y-2"
-          >
-            <h3 className="text-5xl md:text-6xl font-bold text-brand-saffron">
-              <Counter from={0} to={10} />
-            </h3>
-            <p className="text-sm md:text-base uppercase tracking-widest text-white/80 font-medium">
-              Districts Covered
+            <p className="text-sm md:text-base font-medium text-white/80">SHGs Engaged</p>
+          </div>
+          <div className="flex flex-col items-center gap-1">
+            <p className="text-4xl md:text-5xl font-bold text-brand-saffron tabular-nums">
+              <Counter to={10} />
             </p>
-          </motion.div>
-
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="flex flex-col items-center justify-center space-y-2"
-          >
-            <h3 className="text-5xl md:text-6xl font-bold text-brand-saffron">
-              <Counter from={0} to={5} />
-            </h3>
-            <p className="text-sm md:text-base uppercase tracking-widest text-white/80 font-medium">
-              States & UTs
+            <p className="text-sm md:text-base font-medium text-white/80">Districts Covered</p>
+          </div>
+          <div className="flex flex-col items-center gap-1">
+            <p className="text-4xl md:text-5xl font-bold text-brand-saffron tabular-nums">
+              <Counter to={5} />
             </p>
-          </motion.div>
-
+            <p className="text-sm md:text-base font-medium text-white/80">States / UTs</p>
+          </div>
         </div>
       </div>
     </section>
