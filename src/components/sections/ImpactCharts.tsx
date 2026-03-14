@@ -1,5 +1,7 @@
 "use client";
+import { useEffect, useRef, useState } from "react";
 import dynamic from 'next/dynamic';
+import { SegmentedProgress } from "@/components/ui/progress-bar";
 
 const ResponsiveContainer = dynamic(() => import('recharts').then(mod => mod.ResponsiveContainer), { ssr: false });
 const BarChart = dynamic(() => import('recharts').then(mod => mod.BarChart), { ssr: false });
@@ -21,37 +23,47 @@ const metrics = [
 
 function MetricCard({ label, before, after }: { label: string; before: number; after: number }) {
   const gain = after - before;
+  const cardRef = useRef<HTMLDivElement>(null);
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setInView(true); observer.disconnect(); } },
+      { threshold: 0.2 }
+    );
+    if (cardRef.current) observer.observe(cardRef.current);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-5 flex flex-col gap-3">
+    <div ref={cardRef} className="bg-white rounded-2xl border border-gray-100 shadow-sm p-5 flex flex-col gap-4">
       <div className="flex justify-between items-start gap-2">
         <p className="text-sm font-semibold text-gray-800 leading-snug">{label}</p>
         <span className="shrink-0 text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full">+{gain}%</span>
       </div>
-      {/* After bar */}
+
+      {/* After Training - SegmentedProgress */}
       <div>
-        <div className="flex justify-between text-xs text-gray-500 mb-1">
-          <span className="font-medium text-[#E8821A]">After Training</span>
-          <span className="font-bold text-[#E8821A]">{after}%</span>
-        </div>
-        <div className="h-3 w-full bg-gray-100 rounded-full overflow-hidden">
-          <div
-            className="h-full rounded-full bg-[#E8821A] transition-all duration-700"
-            style={{ width: `${after}%` }}
-          />
-        </div>
+        <p className="text-xs font-semibold text-[#E8821A] mb-1">After Training</p>
+        <SegmentedProgress
+          value={inView ? after : 0}
+          segments={20}
+          showPercentage={true}
+          color="#E8821A"
+          className=""
+        />
       </div>
-      {/* Before bar */}
+
+      {/* Before Training - SegmentedProgress */}
       <div>
-        <div className="flex justify-between text-xs text-gray-500 mb-1">
-          <span>Before Training</span>
-          <span className="font-semibold">{before}%</span>
-        </div>
-        <div className="h-3 w-full bg-gray-100 rounded-full overflow-hidden">
-          <div
-            className="h-full rounded-full bg-gray-300 transition-all duration-700"
-            style={{ width: `${before}%` }}
-          />
-        </div>
+        <p className="text-xs text-gray-500 mb-1">Before Training</p>
+        <SegmentedProgress
+          value={inView ? before : 0}
+          segments={20}
+          showPercentage={true}
+          color="#94A3B8"
+          className=""
+        />
       </div>
     </div>
   );
@@ -63,22 +75,17 @@ export default function ImpactCharts() {
       <div className="max-w-6xl mx-auto px-4 md:px-6">
         <div className="text-center mb-12">
           <span className="text-xs font-bold uppercase tracking-widest text-[#E8821A]">Measured Outcomes</span>
-          <h2 className="text-4xl font-bold text-[#003580] mt-2">
-            Before & After Training
-          </h2>
+          <h2 className="text-4xl font-bold text-[#003580] mt-2">Before & After Training</h2>
           <p className="text-gray-500 mt-3 max-w-xl mx-auto">
             Baseline vs Endline data across all 688 participants in 10 districts
           </p>
         </div>
 
-        {/* Metric cards grid — works great on mobile */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {metrics.map((m) => (
-            <MetricCard key={m.label} {...m} />
-          ))}
+          {metrics.map((m) => <MetricCard key={m.label} {...m} />)}
         </div>
 
-        {/* Bar chart — hidden on mobile, visible on md+ */}
+        {/* Bar chart overview - desktop only */}
         <div className="hidden md:block mt-14 h-[360px]">
           <p className="text-center text-sm text-gray-400 mb-4">Overview Chart</p>
           <ResponsiveContainer width="100%" height="100%">
@@ -86,20 +93,8 @@ export default function ImpactCharts() {
               data={metrics.map(m => ({ metric: m.label.split(' ').slice(0,2).join(' '), before: m.before, after: m.after }))}
               margin={{ top: 10, right: 20, left: 0, bottom: 60 }}
             >
-              <XAxis
-                dataKey="metric"
-                type="category"
-                tick={{ fontSize: 11, fill: '#6B7280' }}
-                angle={-25}
-                textAnchor="end"
-                interval={0}
-              />
-              <YAxis
-                domain={[0, 100]}
-                tickFormatter={(v) => `${v}%`}
-                tick={{ fontSize: 11, fill: '#6B7280' }}
-                width={40}
-              />
+              <XAxis dataKey="metric" tick={{ fontSize: 11, fill: '#6B7280' }} angle={-25} textAnchor="end" interval={0} />
+              <YAxis domain={[0, 100]} tickFormatter={(v) => `${v}%`} tick={{ fontSize: 11, fill: '#6B7280' }} width={40} />
               <Tooltip formatter={(value: any) => `${value}%`} />
               <Legend verticalAlign="top" />
               <Bar dataKey="before" name="Before Training" fill="#CBD5E1" radius={[4,4,0,0]} />
