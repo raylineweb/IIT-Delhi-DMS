@@ -6,14 +6,14 @@ export default function Team() {
       id: "1",
       name: "Prof. Seema Sharma",
       role: "Professor, Department of Management Studies",
-      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400",
+      image: "/IIT-Delhi-DMS/images/team/seema-sharma.jpg",
       social: { linkedin: "#" }
     },
     {
       id: "2",
       name: "Prof. Gourav Dwivedi",
       role: "Assistant Professor, Operations & Supply Chain",
-      image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400",
+      image: "/IIT-Delhi-DMS/images/team/gourav-dwivedi.jpg",
       social: { linkedin: "#" }
     }
   ];

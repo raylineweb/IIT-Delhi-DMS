@@ -16,6 +16,13 @@ export default function Project() {
       href: "#impact",
       cta: "View Curriculum",
       className: "lg:col-start-1 lg:col-end-3 lg:row-start-1 lg:row-end-2",
+      background: (
+        <img 
+          className="absolute inset-0 h-full w-full object-cover opacity-10" 
+          src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&auto=format&fit=crop"
+          alt="Women training session India"
+        />
+      ),
     },
     {
       Icon: UsersIcon,
@@ -24,6 +31,13 @@ export default function Project() {
       href: "#impact",
       cta: "See Reach",
       className: "lg:col-start-3 lg:col-end-3 lg:row-start-1 lg:row-end-2",
+      background: (
+        <img 
+          className="absolute inset-0 h-full w-full object-cover opacity-10" 
+          src="https://images.unsplash.com/photo-1617450365226-9bf28c04e130?w=800&auto=format&fit=crop"
+          alt="Indian women group SHG"
+        />
+      ),
     },
     {
       Icon: FlaskConicalIcon,
@@ -32,6 +46,13 @@ export default function Project() {
       href: "#about",
       cta: "Learn More",
       className: "lg:col-start-1 lg:col-end-2 lg:row-start-2 lg:row-end-3",
+      background: (
+        <img 
+          className="absolute inset-0 h-full w-full object-cover opacity-10" 
+          src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&auto=format&fit=crop"
+          alt="Research and fieldwork"
+        />
+      ),
     },
     {
       Icon: GlobeIcon,
@@ -40,6 +61,13 @@ export default function Project() {
       href: "#partners",
       cta: "About EXL Partnership",
       className: "lg:col-start-2 lg:col-end-3 lg:row-start-2 lg:row-end-3",
+      background: (
+        <img 
+          className="absolute inset-0 h-full w-full object-cover opacity-10" 
+          src="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?w=800&auto=format&fit=crop"
+          alt="SDG sustainability"
+        />
+      ),
     },
     {
       Icon: TrendingUpIcon,
@@ -48,6 +76,13 @@ export default function Project() {
       href: "#impact",
       cta: "View Full Data",
       className: "lg:col-start-3 lg:col-end-3 lg:row-start-2 lg:row-end-3",
+      background: (
+        <img 
+          className="absolute inset-0 h-full w-full object-cover opacity-10" 
+          src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=800&auto=format&fit=crop"
+          alt="Impact data charts"
+        />
+      ),
     },
   ];
 
