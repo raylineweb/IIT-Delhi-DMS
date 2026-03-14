@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 70" width="220" height="70">
+  <rect width="220" height="70" fill="#FFFFFF" rx="4" stroke="#E2E8F0" stroke-width="1"/>
+  <rect x="0" y="0" width="6" height="70" fill="#2E7D32" rx="2"/>
+  <text x="18" y="24" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#1B5E20">NRLM / Aajeevika</text>
+  <text x="18" y="42" font-family="Arial, sans-serif" font-size="9" fill="#374151">National Rural Livelihoods Mission</text>
+  <text x="18" y="58" font-family="Arial, sans-serif" font-size="8" fill="#6B7280">State SRLMs — Implementation Partners</text>
+</svg>
