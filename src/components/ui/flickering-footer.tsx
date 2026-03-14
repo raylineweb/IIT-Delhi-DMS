@@ -347,7 +347,7 @@ export const Footer = () => {
   const tablet = useMediaQuery("(max-width: 1024px)");
 
   return (
-    <footer id="footer" className="w-full pb-0 bg-brand-navy text-white overflow-hidden relative">
+    <footer id="contact" className="w-full pb-0 bg-brand-navy text-white overflow-hidden relative">
       <div className="flex flex-col md:flex-row md:items-center md:justify-between p-10 z-20 relative">
         <div className="flex flex-col items-start justify-start gap-y-5 max-w-xs mx-0">
           <Link href="/" className="flex items-center gap-2">
