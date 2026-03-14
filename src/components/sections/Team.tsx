@@ -58,7 +58,7 @@ export default function Team() {
       id: "8",
       name: "Shalini",
       role: "Senior Project Assistant",
-      image: "/IIT-Delhi-DMS/images/team/shalini.jpg",
+      image: "",
       social: {}
     }
   ];
