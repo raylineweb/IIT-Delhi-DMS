@@ -18,13 +18,13 @@ export default function Partners() {
                 CSR Partner
               </span>
             </div>
-            
-            <img 
-              src="/IIT-Delhi-DMS/images/exl-logo.png" 
-              alt="EXL" 
+
+            <img
+              src="/IIT-Delhi-DMS/images/exl-logo.svg"
+              alt="EXL"
               className="h-10 w-auto object-contain mb-4"
-              onError={(e: any) => { 
-                e.target.style.display='none' 
+              onError={(e: any) => {
+                e.target.style.display='none'
               }}
             />
 
@@ -43,13 +43,13 @@ export default function Partners() {
                 Government Partner
               </span>
             </div>
-            
-            <img 
-              src="/IIT-Delhi-DMS/images/arsrlm-logo.png" 
-              alt="ArSRLM" 
+
+            <img
+              src="/IIT-Delhi-DMS/images/arsrlm-logo.svg"
+              alt="ArSRLM"
               className="h-10 w-auto object-contain mb-4"
-              onError={(e: any) => { 
-                e.target.style.display='none' 
+              onError={(e: any) => {
+                e.target.style.display='none'
               }}
             />
 
