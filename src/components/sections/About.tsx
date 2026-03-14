@@ -7,7 +7,7 @@ export default function About() {
           {/* Left: Image / Logo Card */}
           <div className="flex flex-col items-center justify-center gap-6 p-10 bg-[#FAF9F6] rounded-2xl border border-gray-100 shadow-sm relative overflow-hidden">
             <img
-              src="https://upload.wikimedia.org/wikipedia/en/thumb/f/fd/Indian_Institute_of_Technology_Delhi_Logo.svg/240px-Indian_Institute_of_Technology_Delhi_Logo.svg.png"
+                            src="/IIT-Delhi-DMS/images/iitd-logo.svg"
               alt="IIT Delhi"
               className="h-20 w-auto object-contain"
             />
