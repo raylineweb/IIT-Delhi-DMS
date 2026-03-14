@@ -1,70 +1,113 @@
 "use client";
-// @ts-nocheck
-import dynamic from "next/dynamic";
+import { BentoItem, CyberneticBentoGrid } from "@/components/ui/cybernetic-bento-grid";
+import { MapPin, Users, Building2 } from "lucide-react";
 
-const IndiaMap = dynamic(
-  () => import("@vishalvoid/react-india-map").then((m) => m.IndiaMap),
-  { ssr: false }
-);
-
-const PROJECT_STATES = ["IN-DL", "IN-HR", "IN-HP", "IN-UP", "IN-UT"];
-
-const stateData = [
-  { id: "IN-DL", color: "#F97316", customData: { state: "Delhi", participants: 121,
-    districts: "South Delhi, North Delhi" } },
-  { id: "IN-HR", color: "#F97316", customData: { state: "Haryana", participants: 97,
-    districts: "Palwal, Nuh" } },
-  { id: "IN-HP", color: "#F97316", customData: { state: "Himachal Pradesh", participants: 166,
-    districts: "Shimla, Hamirpur" } },
-  { id: "IN-UP", color: "#F97316", customData: { state: "Uttar Pradesh", participants: 228,
-    districts: "Lucknow, Prayagraj" } },
-  { id: "IN-UT", color: "#F97316", customData: { state: "Uttarakhand", participants: 106,
-    districts: "Dehradun, Haridwar" } },
+const states = [
+  {
+    name: "Delhi",
+    flag: "IN-DL",
+    participants: 121,
+    districts: "South Delhi, North Delhi",
+    shgs: 42,
+    img: "https://images.unsplash.com/photo-1587474260584-136574528ed5?w=400&auto=format&fit=crop",
+    alt: "India Gate Delhi",
+  },
+  {
+    name: "Haryana",
+    flag: "IN-HR",
+    participants: 97,
+    districts: "Palwal, Nuh",
+    shgs: 31,
+    img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&auto=format&fit=crop",
+    alt: "Rural Haryana",
+  },
+  {
+    name: "Himachal Pradesh",
+    flag: "IN-HP",
+    participants: 166,
+    districts: "Shimla, Hamirpur",
+    shgs: 58,
+    img: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&auto=format&fit=crop",
+    alt: "Himalayan mountains HP",
+  },
+  {
+    name: "Uttar Pradesh",
+    flag: "IN-UP",
+    participants: 228,
+    districts: "Lucknow, Prayagraj",
+    shgs: 71,
+    img: "https://images.unsplash.com/photo-1514222134-b57cbb8ce073?w=400&auto=format&fit=crop",
+    alt: "Uttar Pradesh",
+  },
+  {
+    name: "Uttarakhand",
+    flag: "IN-UT",
+    participants: 106,
+    districts: "Dehradun, Haridwar",
+    shgs: 38,
+    img: "https://images.unsplash.com/photo-1573407055079-b2e26bbb1a3e?w=400&auto=format&fit=crop",
+    alt: "Uttarakhand hills",
+  },
 ];
 
 export default function ReachMap() {
   return (
-    <section id="map" className="py-20 bg-[#FAF9F6]">
-      <div className="max-w-5xl mx-auto px-6">
-        <div className="text-center mb-12">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#E8821A]">Project Footprint</span>
-          <h2 className="text-4xl font-bold text-[#003580] mt-2">
+    <section id="map" className="py-20 bg-[#0a0a0f]">
+      <div className="max-w-6xl mx-auto px-4 md:px-6">
+        <div className="text-center mb-14">
+          <span className="text-xs font-bold uppercase tracking-widest text-[#F97316]">Project Footprint</span>
+          <h2 className="text-4xl font-bold text-white mt-2">
             Reaching Across Northern India
           </h2>
-          <p className="text-gray-500 mt-3 max-w-xl mx-auto">
-            10 districts across 5 states — all trained through
-            IIT Delhi’s action research program
+          <p className="text-neutral-400 mt-3 max-w-xl mx-auto">
+            10 districts across 5 states — all trained through IIT Delhi’s action research program
           </p>
         </div>
 
-        <div className="bg-white rounded-3xl shadow-sm border border-gray-100 p-6 md:p-10">
-          <IndiaMap
-            stateData={stateData}
-            mapStyle={{
-              backgroundColor: "#EEF2FF",
-              hoverColor: "#EA580C",
-              stroke: "#CBD5E1",
-              strokeWidth: 0.8,
-              tooltipConfig: {
-                backgroundColor: "#003580",
-                textColor: "#ffffff",
-              },
-            }}
-            onStateHover={(stateId, info) => {}}
-            onStateClick={(stateId, info) => {}}
-          />
-        </div>
-
-        <div className="mt-10 grid grid-cols-2 md:grid-cols-5 gap-4">
-          {stateData.map((s) => (
-            <div key={s.id} className="bg-white rounded-xl p-4 text-center shadow-sm border border-orange-100">
-              <div className="w-3 h-3 rounded-full bg-[#F97316] mx-auto mb-2" />
-              <p className="font-semibold text-sm text-[#003580]">{s.customData.state}</p>
-              <p className="text-xs text-gray-500 mt-1">{s.customData.participants} participants</p>
-              <p className="text-xs text-gray-400">{s.customData.districts}</p>
-            </div>
+        <CyberneticBentoGrid className="grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+          {states.map((s) => (
+            <BentoItem key={s.name} className="flex flex-col gap-0 p-0 overflow-hidden">
+              {/* State image */}
+              <div className="relative h-40 w-full overflow-hidden">
+                <img
+                  src={s.img}
+                  alt={s.alt}
+                  className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
+                  onError={(e: any) => { e.target.style.display = 'none'; }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-neutral-900 via-neutral-900/40 to-transparent" />
+                <span className="absolute bottom-3 left-4 text-xl font-bold text-white drop-shadow">{s.name}</span>
+              </div>
+              {/* State details */}
+              <div className="p-5 flex flex-col gap-3">
+                <div className="flex items-center gap-2 text-sm text-neutral-400">
+                  <MapPin className="h-4 w-4 text-[#F97316] shrink-0" />
+                  <span>{s.districts}</span>
+                </div>
+                <div className="flex gap-4">
+                  <div className="flex items-center gap-2">
+                    <Users className="h-4 w-4 text-[#F97316] shrink-0" />
+                    <div>
+                      <p className="text-lg font-bold text-white">{s.participants}</p>
+                      <p className="text-xs text-neutral-500">Participants</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Building2 className="h-4 w-4 text-[#F97316] shrink-0" />
+                    <div>
+                      <p className="text-lg font-bold text-white">{s.shgs}</p>
+                      <p className="text-xs text-neutral-500">SHGs</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </BentoItem>
           ))}
-        </div>
+        </CyberneticBentoGrid>
+
+        <p className="text-center text-neutral-600 text-xs mt-10">
+          Total: 688 women · 224 SHGs · 10 districts · 5 states / UTs
+        </p>
       </div>
     </section>
   );
