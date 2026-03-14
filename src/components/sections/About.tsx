@@ -6,11 +6,10 @@ export default function About() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           {/* Left: Image / Logo Card */}
           <div className="flex flex-col items-center justify-center gap-6 p-10 bg-[#FAF9F6] rounded-2xl border border-gray-100 shadow-sm relative overflow-hidden">
-            <img 
-              src="/IIT-Delhi-DMS/images/iitd-logo.png"
-              alt="IIT Delhi Logo"
-              className="h-32 w-auto object-contain relative z-10"
-              onError={(e: any) => { e.target.style.display='none' }}
+            <img
+              src="https://upload.wikimedia.org/wikipedia/en/thumb/f/fd/Indian_Institute_of_Technology_Delhi_Logo.svg/240px-Indian_Institute_of_Technology_Delhi_Logo.svg.png"
+              alt="IIT Delhi"
+              className="h-20 w-auto object-contain"
             />
             <div className="text-center relative z-10">
               <p className="text-2xl font-bold text-[#003580]">IIT Delhi</p>
